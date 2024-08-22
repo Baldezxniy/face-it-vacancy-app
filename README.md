@@ -2,6 +2,8 @@
 
 ## Overview
 
+https://face-it-vacancy-app.onrender.com
+
 This service is designed for managing vacancies. It interacts with multiple components for importing, storing, and providing vacancies through a REST API. The service is modular, with different folders corresponding to specific functional parts.
 
 ![Service Architecture](docs/main.png)
