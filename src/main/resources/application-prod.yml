@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: face-it-vacancy-importer
+  datasource:
+    url: jdbc:h2:mem:vacancy-app
+    driver-class-name: org.h2.Driver
+    username: bob
+    password: bob
+    hikari:
+      connection-timeout: 30000
+      connection-test-query: select 1
+      maximum-pool-size: 10
+      minimum-idle: 10
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 0
+      pool-name: "vacancy-app-pool"
+      register-mbeans: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase/db.changelog-master.yaml
+    url: jdbc:h2:mem:vacancy-app
+    user: bob
+    password: bob
+
+vacancy-importer:
+  api:
+    url: https://www.arbeitnow.com/api/job-board-api
+
+scheduler:
+  config:
+    first-page: 1 # start from 1 page
+    last-page: 5
+    delay-on-minutes: 60
